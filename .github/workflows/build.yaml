@@ -76,7 +76,8 @@ jobs:
 
       - name: Append CONFIG_RELR=y to target/linux/qualcommax/config-6.6
         run: echo "CONFIG_RELR=y" >> target/linux/qualcommax/config-6.6
-
+          && echo "CONFIG_KMOD_ALL=y" >> .config 
+          && echo "CONFIG_FEED_custom_packages=n" >> .config
       - name: Include custom files
         run: |
           mkdir -p ${{ env.CUSTOM_FILES_PATH }}
