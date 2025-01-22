@@ -20,7 +20,7 @@ jobs:
     name: Check for new commits
     runs-on: ubuntu-24.04
     outputs:
-           new_commits: ${{ steps.check_commits.outputs.new_commits }}
+      new_commits: ${{ steps.check_commits.outputs.new_commits }}
       latest_commit_sha: ${{ steps.check_commits.outputs.latest_commit_sha }}
       nss_packages_repo_new_commits: ${{ steps.check_commits.outputs.nss_packages_repo_new_commits }}
       nss_packages_repo_latest_commit_sha: ${{ steps.check_commits.outputs.nss_packages_repo_latest_commit_sha }}
@@ -29,11 +29,6 @@ jobs:
         id: check_commits
         env:
           GH_TOKEN: ${{ github.token }}
-                                                                                                                                                                                                                          
-                                                                                                                                                                                    
-                                                                       
-                                                              
-                                               
         run: |
           # Fetch latest commits and release info
           latest_sha=$(gh api "repos/${{ env.REMOTE_REPOSITORY }}/commits/${{ env.REMOTE_BRANCH }}" --jq .sha)
