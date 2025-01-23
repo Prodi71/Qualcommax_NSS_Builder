@@ -11,7 +11,7 @@ set wireless.default_radio0.proxy_arp='1'
 set wireless.default_radio0.ocv='1'
 
 # Wireless radio0 specific settings
-set wireless.radio0.htmode='HE160'
+set wireless.radio0.htmode='HE80'
 set wireless.radio0.channel='auto'
 set wireless.radio0.country='PA'
 
