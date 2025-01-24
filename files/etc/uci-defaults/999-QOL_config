@@ -1,6 +1,8 @@
 uci -q batch << EOI
 # Set pbuf options
 set pbuf.opt.memory_profile='1gb'
+# Wireless radio0 specific settings
+set wireless.radio0.disabled='1'
 
 # Wireless default settings for radio1
 set wireless.default_radio1.wnm_sleep_mode='1'
@@ -10,35 +12,58 @@ set wireless.default_radio1.bss_transition='1'
 set wireless.default_radio1.proxy_arp='1'
 set wireless.default_radio1.ocv='1'
 
-# Wireless radio0 specific settings
+Wireless radio1 specific settings
 set wireless.radio1.htmode='HE80'
+set wireless.radio1.txpower='24'
 set wireless.radio1.channel='149'
 set wireless.radio1.country='PA'
+set wireless.default_radio1=wifi-iface
+set wireless.default_radio1.device='radio1'
+set wireless.default_radio1.network='lan'
+set wireless.default_radio1.mode='ap'
+set wireless.default_radio1.ssid='OpenWrt5'
+set wireless.default_radio1.encryption='psk2+ccmp'
+set wireless.default_radio1.key='nata91sha86'
+set wireless.default_radio1.macfilter='deny'
+set wireless.default_radio1.maclist='E8:AC:AD:5C:78:5B' '18:BB:26:13:59:60'
 
 # Wireless default settings for radio2
-set wireless.default_radio.wnm_sleep_mode='1'
+set wireless.default_radio2.wnm_sleep_mode='1'
 set wireless.default_radio2.ieee80211k='1'
 set wireless.default_radio2.time_advertisement='2'
 set wireless.default_radio2.bss_transition='1'
 set wireless.default_radio2.proxy_arp='1'
 set wireless.default_radio2.ocv='1'
 
-# Wireless radio1 specific settings
+# Wireless radio2 specific settings
 set wireless.radio2.htmode='HE40'
+set wireless.radio2.txpower='24'
 set wireless.radio2.channel='1'
 set wireless.radio2.country='PA'
+set wireless.default_radio2=wifi-iface
+set wireless.default_radio2.device='radio2'
+set wireless.default_radio2.network='lan'
+set wireless.default_radio2.mode='ap'
+set wireless.default_radio2.ssid='OpenWrt2'
+set wireless.default_radio2.encryption='psk2+ccmp'
+set wireless.default_radio2.key='nata91sha86'
+set wireless.default_radio2.macfilter='deny'
+set wireless.default_radio2.maclist='E8:AC:AD:5C:78:5B' '18:BB:26:13:59:60'
 
 # Firewall settings
-set firewall.@zone[1].input='DROP'
-set firewall.@zone[1].forward='DROP'
+#set firewall.@zone[1].input='DROP'
+#set firewall.@zone[1].forward='DROP'
 
 # Network settings
 set network.lan.ipaddr='192.168.1.1'
-set system.@system[0].hostname=OpenWrt3600
+set system.@system[0].hostname='OpenWrt3600'
+set system.@system[0].zonename='Etc/GMT-4'
 set network.@device[0].packet_steering='0'
 set network.@device[0].flow_offloading='0'
 set network.@device[0].flow_offloading_hw='0'
-
+set network.@device[1]=device
+set network.@device[1].name='wan'
+set network.@device[1].macaddr='04:92:26:8B:1D:A4'
 # uHTTPd settings
 set uhttpd.main.redirect_https='1'
 
